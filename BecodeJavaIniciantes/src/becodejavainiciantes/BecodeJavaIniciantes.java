@@ -16,6 +16,13 @@ public class BecodeJavaIniciantes {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        // System.out.println("BeCode!!!");
+        
+        Formulario FrmInicial = new Formulario();
+        FrmInicial.setVisible(true);
+        
+        
     }
     
 }
