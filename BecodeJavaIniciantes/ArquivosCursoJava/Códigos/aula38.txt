@@ -1,0 +1,74 @@
+static boolean Alterar = false;
+
+================================
+
+BtnAlterar.setEnabled(true);
+
+=================================
+        Alterar = true;
+        
+        BtnSalvar.setEnabled(true);
+        BtnNovo.setEnabled(false);
+        BtnAnterior.setEnabled(false);
+        BtnProximo.setEnabled(false);
+        BtnAlterar.setEnabled(false);
+        
+        TxtNome.setEnabled(true);
+        TxtEndereco.setEnabled(true);
+        TxtCpf.setEnabled(true);
+        TxtTelefone.setEnabled(true);
+        TxtNome.requestFocus();
+                            
+
+
+====================================
+
+
+		try {
+                PreparedStatement alteracao = Banco.Conn.prepareStatement("UPDATE leitor SET nome_leitor=?, endereco_leitor=?, cpf=?, telefone_leitor=? WHERE id_leitor=?");
+                
+                
+                int id;
+                id = Integer.parseInt(Banco.Rs.getString("id_leitor"));
+
+                alteracao.setString(1, TxtNome.getText());
+                alteracao.setString(2, TxtEndereco.getText());
+                alteracao.setString(3, TxtCpf.getText());
+                alteracao.setString(4, TxtTelefone.getText());
+                alteracao.setInt(5, id);
+                       
+                alteracao.executeUpdate();
+                
+                JOptionPane.showMessageDialog(null, "Dados alterados com sucesso!!");
+        
+        
+                //Atualiza consulta
+                Banco.executaSQL("SELECT * FROM leitor");    
+
+                //Desabilita / Ativa botões e campos
+
+                BtnSalvar.setEnabled(false);
+                BtnNovo.setEnabled(true);
+                BtnAnterior.setEnabled(true);
+                BtnProximo.setEnabled(true);
+
+                TxtNome.setEnabled(false);
+                TxtEndereco.setEnabled(false);
+                TxtCpf.setEnabled(false);
+                TxtTelefone.setEnabled(false);
+                
+                TxtNome.setText(null);
+                TxtEndereco.setText(null);
+                TxtCpf.setText(null);
+                TxtTelefone.setText(null);
+                
+                Alterar=false;
+
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroLeitor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+====================================================
+

@@ -1,0 +1,58 @@
+String IDLeitor = ""+jTable1.getValueAt(jTable1.getSelectedRow(),0);
+        
+        int ID = Integer.parseInt(IDLeitor);
+        
+       Banco.executaSQL("SELECT id_emprestimo, nome_leitor, nome_livro, emprestimo, devolucao FROM emprestimo WHERE id_emprestimo='"+ID+"'");
+        try {
+            Banco.Rs.first();
+            LblLeitor.setText(Banco.Rs.getString("nome_leitor"));
+	    LblLivro.setText(Banco.Rs.getString("nome_livro"));
+            TxtRetirada.setText(Banco.Rs.getString("emprestimo"));
+            TxtDevolucao.setText(Banco.Rs.getString("devolucao"));
+            
+            Date Hoje = new Date();
+            Date DataConvertida1;
+            Date DataConvertida2;
+                    
+                        
+            DateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+            
+        
+            String HojeString = formate.format(Hoje);
+            
+            try {
+                
+                              
+                DataConvertida1 = formate.parse(TxtDevolucao.getText());
+                DataConvertida2 = formate.parse(HojeString);
+                double diferencaMS = DataConvertida2.getTime() - DataConvertida1.getTime();
+                
+                double diferencaSegundos = diferencaMS / 1000;  
+                double diferencaMinutos = diferencaSegundos / 60;  
+                double diferencaHoras = diferencaMinutos / 60;  
+                double diferencaDias = diferencaHoras / 24;  
+                            
+                
+                if (diferencaDias>0) {
+                
+               
+                double Multa = diferencaDias * 2.7;    
+                TxtAtraso.setText(Double.toString(diferencaDias));
+                TxtMulta.setText(Double.toString(Multa));
+                
+                }
+                
+                else {
+                    TxtAtraso.setText("0");
+                    TxtMulta.setText("0");
+                }
+                
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastraDevolucao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+                       
+        } catch (SQLException ex) {
+          // Logger.getLogger(CadastraDevolucao.class.getName()).log(Level.SEVERE, null, ex);
+        }

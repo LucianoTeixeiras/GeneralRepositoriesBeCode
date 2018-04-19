@@ -1,0 +1,65 @@
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
+=======================
+
+ConexaoBanco Banco = new ConexaoBanco();
+public int IDEmprestimo;
+======================
+
+Banco.conexao();
+
+================
+
+public void PreencherTabela(String SQL) {
+        ArrayList dados = new ArrayList();
+        
+        String[] Colunas = new String[]{"ID","Leitor", "Livro", "Emprestimo", "Devolução"};
+        
+        Banco.executaSQL(SQL);
+        
+        try {
+            Banco.Rs.first();
+            
+            do {
+            dados.add(new Object[]{Banco.Rs.getInt("id_emprestimo"),Banco.Rs.getString("nome_leitor"), Banco.Rs.getString("nome_livro"), Banco.Rs.getString("emprestimo"), Banco.Rs.getString("devolucao")});
+            
+            } while (Banco.Rs.next()); {
+            
+        }
+            
+            
+        } catch (SQLException ex) {
+            //Logger.getLogger(CadastraDevolucao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ModeloTabela modelo = new ModeloTabela(dados, Colunas);
+        jTable1.setModel(modelo);
+        
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(3).setResizable(false);
+        
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(4).setResizable(false);
+        
+        
+        
+        jTable1.getTableHeader().setResizingAllowed(false);
+        jTable1.setAutoResizeMode(jTable1.AUTO_RESIZE_OFF);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+}
+
+
+================
+
+ PreencherTabela("SELECT * from emprestimo WHERE (ativo='SIM') AND UPPER(nome_leitor) LIKE '%"+ TxtLeitor.getText().toUpperCase()+"%'");

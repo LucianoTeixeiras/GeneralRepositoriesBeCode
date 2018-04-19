@@ -138,6 +138,7 @@ public class Cadastro extends javax.swing.JFrame {
     private void BtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOkActionPerformed
         // TODO add your handling code here:
         
+        /*
         String Nome;
         String Endereco;
         int Numero;
@@ -149,6 +150,17 @@ public class Cadastro extends javax.swing.JFrame {
         Telefone = TxtTelefone.getText();
         
         JOptionPane.showMessageDialog(null, "Nome: " + Nome + "Endereço: " + Endereco + "Número: " + Numero + "Telefone: " + Telefone);
+        */
+        
+        String Nome = "Luciano T da Silva";
+        String Endereco = "Rua Fulano de Tal";
+        int Numero = 111;
+        String Telefone = "(51) 123456789";
+
+        TxtNome.setText(Nome);
+        TxtEndereco.setText(Endereco);
+        TxtNumero.setText(Integer.toString(Numero));
+        TxtTelefone.setText(Telefone);
         
     }//GEN-LAST:event_BtnOkActionPerformed
 

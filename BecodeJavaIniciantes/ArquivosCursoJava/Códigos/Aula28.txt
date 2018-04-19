@@ -1,0 +1,54 @@
+pessoa.java
+===========    
+
+    private String strNome;
+    private int intIdade;
+    private double douPeso;
+    
+    //GET
+
+        public void DefineNome(String Nome) {
+            this.strNome = Nome;
+        }
+        
+        public void DefineIdade(int Idade)
+        {
+            this.intIdade = Idade;
+        }
+
+        public void DefinePeso(double Peso)
+        {
+            this.douPeso = Peso;
+        }
+        
+    //SET
+        public String ObterNome()
+        {
+            return this.strNome;
+        }
+
+        public int ObterIdade()
+        {
+            return this.intIdade;
+        }
+
+        public double ObterPeso()
+        {
+            return this.douPeso;
+        }
+
+btnGet
+======
+
+            Pessoa objPessoa = new Pessoa();
+        
+            objPessoa.DefineNome(TxtNome.getText());
+            objPessoa.DefineIdade(Integer.parseInt(TxtIdade.getText()));
+            objPessoa.DefinePeso(Double.parseDouble(TxtPeso.getText()));
+            
+            
+            //Limpa campos
+            
+            TxtNome.setText(null);
+            TxtIdade.setText(null);
+            TxtPeso.setText(null);

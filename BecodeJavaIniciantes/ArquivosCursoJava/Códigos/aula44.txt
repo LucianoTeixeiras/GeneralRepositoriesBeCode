@@ -1,0 +1,1 @@
+PreencherTabela("SELECT * from leitor WHERE UPPER(nome_leitor) LIKE '%"+ TxtLeitor.getText().toUpperCase()+"%'");
