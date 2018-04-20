@@ -37,6 +37,8 @@ public class Inicial extends javax.swing.JFrame {
         BtnDivisao = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         TxtResultado = new javax.swing.JTextField();
+        BtnLimpar = new javax.swing.JButton();
+        BtnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,34 +88,53 @@ public class Inicial extends javax.swing.JFrame {
 
         jLabel3.setText("Resultado:");
 
+        BtnLimpar.setText("Limpar");
+        BtnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimparActionPerformed(evt);
+            }
+        });
+
+        BtnSair.setText("Sair");
+        BtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtResultado))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnMultiplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnAdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnSubtracao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnDivisao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(BtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(TxtValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(18, 18, 18)
+                            .addComponent(TxtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BtnAdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(BtnMultiplicacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BtnSubtracao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtnDivisao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(TxtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,15 +151,19 @@ public class Inicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnAdicao)
                     .addComponent(BtnSubtracao))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnMultiplicacao)
                     .addComponent(BtnDivisao))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(TxtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnLimpar)
+                    .addComponent(BtnSair))
+                .addContainerGap())
         );
 
         pack();
@@ -155,69 +180,87 @@ public class Inicial extends javax.swing.JFrame {
     private void BtnAdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdicaoActionPerformed
         // TODO add your handling code here:
         
-        int Valor1;
-        int Valor2;
+        double Valor1;
+        double Valor2;
         
-        int Resultado;
+        double Resultado;
         
-        Valor1 = Integer.parseInt(TxtValor1.getText());
-        Valor2 = Integer.parseInt(TxtValor2.getText());
+        Valor1 = Double.parseDouble(TxtValor1.getText());
+        Valor2 = Double.parseDouble(TxtValor2.getText());
         
         Resultado = Valor1 + Valor2;
         
-        TxtResultado.setText(Integer.toString(Resultado));
+        TxtResultado.setText(Double.toString(Resultado));
     }//GEN-LAST:event_BtnAdicaoActionPerformed
 
     private void BtnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSubtracaoActionPerformed
         // TODO add your handling code here:
         
-        int Valor1;
-        int Valor2;
+        double Valor1;
+        double Valor2;
         
-        int Resultado;
+        double Resultado;
         
         Valor1 = Integer.parseInt(TxtValor1.getText());
         Valor2 = Integer.parseInt(TxtValor2.getText());
         
         Resultado = Valor1 - Valor2;
         
-        TxtResultado.setText(Integer.toString(Resultado));
+        TxtResultado.setText(Double.toString(Resultado));
 
     }//GEN-LAST:event_BtnSubtracaoActionPerformed
 
     private void BtnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMultiplicacaoActionPerformed
         // TODO add your handling code here:
         
-        int Valor1;
-        int Valor2;
+        double Valor1;
+        double Valor2;
         
-        int Resultado;
+        double Resultado;
         
         Valor1 = Integer.parseInt(TxtValor1.getText());
         Valor2 = Integer.parseInt(TxtValor2.getText());
         
         Resultado = Valor1 * Valor2;
         
-        TxtResultado.setText(Integer.toString(Resultado));
+        TxtResultado.setText(Double.toString(Resultado));
 
     }//GEN-LAST:event_BtnMultiplicacaoActionPerformed
 
     private void BtnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDivisaoActionPerformed
         // TODO add your handling code here:
 
-        int Valor1;
-        int Valor2;
+        double Valor1;
+        double Valor2;
         
-        int Resultado;
+        double Resultado;
         
         Valor1 = Integer.parseInt(TxtValor1.getText());
         Valor2 = Integer.parseInt(TxtValor2.getText());
         
         Resultado = Valor1 / Valor2;
         
-        TxtResultado.setText(Integer.toString(Resultado));
+        TxtResultado.setText(Double.toString(Resultado));
 
     }//GEN-LAST:event_BtnDivisaoActionPerformed
+
+    private void BtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimparActionPerformed
+        // TODO add your handling code here:
+        
+        //Limpa os campos para novos cálculos
+        
+        TxtValor1.setText(null);
+        TxtValor2.setText(null);
+        TxtResultado.setText(null);
+    }//GEN-LAST:event_BtnLimparActionPerformed
+
+    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
+        // TODO add your handling code here:
+        
+        // Botão de Saída da Aplicação
+        
+        System.exit(0);
+    }//GEN-LAST:event_BtnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +300,9 @@ public class Inicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAdicao;
     private javax.swing.JButton BtnDivisao;
+    private javax.swing.JButton BtnLimpar;
     private javax.swing.JButton BtnMultiplicacao;
+    private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnSubtracao;
     private javax.swing.JTextField TxtResultado;
     private javax.swing.JTextField TxtValor1;
