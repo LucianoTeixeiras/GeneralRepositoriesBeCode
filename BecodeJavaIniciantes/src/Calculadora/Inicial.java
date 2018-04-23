@@ -251,23 +251,30 @@ public class Inicial extends javax.swing.JFrame {
     private void BtnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDivisaoActionPerformed
         // TODO add your handling code here:
 
-        if ((!"".equals(TxtValor1.getText())) && (!"".equals(TxtValor2.getText()))) {
+        if (("".equals(TxtValor1.getText())) || ("".equals(TxtValor2.getText()))) {
+            
+            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+            
+        }            
+        else if ("0".equals(TxtValor2.getText())){
+            
+            JOptionPane.showMessageDialog(null, "Não é possível realizar uam divisão por 0");
+            
+        }
+        else {
         
         double Valor1;
         double Valor2;
         
         double Resultado;
         
-        Valor1 = Integer.parseInt(TxtValor1.getText());
-        Valor2 = Integer.parseInt(TxtValor2.getText());
+        Valor1 = Double.parseDouble(TxtValor1.getText());
+        Valor2 = Double.parseDouble(TxtValor2.getText());
         
         Resultado = Valor1 / Valor2;
         
         TxtResultado.setText(Double.toString(Resultado));
-
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+        
         }
     }//GEN-LAST:event_BtnDivisaoActionPerformed
 
