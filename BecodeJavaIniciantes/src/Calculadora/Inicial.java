@@ -5,6 +5,8 @@
  */
 package Calculadora;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luciano.t.da.silva
@@ -180,6 +182,8 @@ public class Inicial extends javax.swing.JFrame {
     private void BtnAdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdicaoActionPerformed
         // TODO add your handling code here:
         
+        if ((!"".equals(TxtValor1.getText())) && (!"".equals(TxtValor2.getText()))) {
+            
         double Valor1;
         double Valor2;
         
@@ -191,10 +195,17 @@ public class Inicial extends javax.swing.JFrame {
         Resultado = Valor1 + Valor2;
         
         TxtResultado.setText(Double.toString(Resultado));
+        
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+        }
     }//GEN-LAST:event_BtnAdicaoActionPerformed
 
     private void BtnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSubtracaoActionPerformed
         // TODO add your handling code here:
+
+        if ((!"".equals(TxtValor1.getText())) && (!"".equals(TxtValor2.getText()))) {
         
         double Valor1;
         double Valor2;
@@ -208,10 +219,16 @@ public class Inicial extends javax.swing.JFrame {
         
         TxtResultado.setText(Double.toString(Resultado));
 
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+        }
     }//GEN-LAST:event_BtnSubtracaoActionPerformed
 
     private void BtnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMultiplicacaoActionPerformed
         // TODO add your handling code here:
+
+        if ((!"".equals(TxtValor1.getText())) && (!"".equals(TxtValor2.getText()))) {
         
         double Valor1;
         double Valor2;
@@ -225,11 +242,17 @@ public class Inicial extends javax.swing.JFrame {
         
         TxtResultado.setText(Double.toString(Resultado));
 
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+        }
     }//GEN-LAST:event_BtnMultiplicacaoActionPerformed
 
     private void BtnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDivisaoActionPerformed
         // TODO add your handling code here:
 
+        if ((!"".equals(TxtValor1.getText())) && (!"".equals(TxtValor2.getText()))) {
+        
         double Valor1;
         double Valor2;
         
@@ -242,6 +265,10 @@ public class Inicial extends javax.swing.JFrame {
         
         TxtResultado.setText(Double.toString(Resultado));
 
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Verifique os valores para a sua operação!!!");
+        }
     }//GEN-LAST:event_BtnDivisaoActionPerformed
 
     private void BtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimparActionPerformed
