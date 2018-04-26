@@ -5,12 +5,16 @@
  */
 package CadastroPessoa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luciano.t.da.silva
  */
 public class FormPessoa extends javax.swing.JFrame {
-
+    
+    Pessoa objPessoa = new Pessoa();
+        
     /**
      * Creates new form FormPessoa
      */
@@ -33,8 +37,8 @@ public class FormPessoa extends javax.swing.JFrame {
         TxtIdade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         TxtPeso = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnGet = new javax.swing.JButton();
+        BtnSet = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,17 +54,17 @@ public class FormPessoa extends javax.swing.JFrame {
 
         jLabel3.setText("Peso:");
 
-        jButton1.setText("GET");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnGet.setText("GET");
+        BtnGet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnGetActionPerformed(evt);
             }
         });
 
-        jButton2.setText("SET");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnSet.setText("SET");
+        BtnSet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnSetActionPerformed(evt);
             }
         });
 
@@ -79,9 +83,9 @@ public class FormPessoa extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(TxtPeso, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtIdade, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnGet, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(BtnSet)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,8 +105,8 @@ public class FormPessoa extends javax.swing.JFrame {
                 .addComponent(TxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(BtnGet)
+                    .addComponent(BtnSet))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -113,14 +117,23 @@ public class FormPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtIdadeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSetActionPerformed
         // TODO add your handling code here:
         
-        Pessoa objPessoa = new Pessoa();
+        String strNome;
+        int intIdade;
+        double douPeso;
+    
+        strNome = objPessoa.ObterNome();
+        intIdade = objPessoa.ObterIdade();
+        douPeso = objPessoa.ObterPeso();
+        
+        JOptionPane.showMessageDialog(null, "Nome: " + strNome + ", Idade: " + intIdade + ", Peso: " + douPeso);
+        
+    }//GEN-LAST:event_BtnSetActionPerformed
+
+    private void BtnGetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGetActionPerformed
+        // TODO add your handling code here:
         
         objPessoa.DefineNome(TxtNome.getText());
         objPessoa.DefineIdade(Integer.parseInt(TxtIdade.getText()));
@@ -132,7 +145,7 @@ public class FormPessoa extends javax.swing.JFrame {
         TxtIdade.setText(null);
         TxtPeso.setText(null);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnGetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,11 +183,11 @@ public class FormPessoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGet;
+    private javax.swing.JButton BtnSet;
     private javax.swing.JTextField TxtIdade;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtPeso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

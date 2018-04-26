@@ -34,10 +34,10 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="TxtPeso" alignment="0" max="32767" attributes="0"/>
                           <Component id="TxtIdade" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BtnGet" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="BtnSet" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="121" max="32767" attributes="0"/>
@@ -61,8 +61,8 @@
               <Component id="TxtPeso" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnGet" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnSet" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
@@ -94,20 +94,20 @@
     </Component>
     <Component class="javax.swing.JTextField" name="TxtPeso">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="BtnGet">
       <Properties>
         <Property name="text" type="java.lang.String" value="GET"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGetActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="BtnSet">
       <Properties>
         <Property name="text" type="java.lang.String" value="SET"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSetActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
