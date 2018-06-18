@@ -1,0 +1,53 @@
+        try {
+        double Valor1;
+        double Valor2;
+        double Resultado;
+        
+           
+            
+        Valor1 = Double.parseDouble(TxtValor1.getText());
+        Valor2 = Double.parseDouble(TxtValor2.getText());
+        
+        
+        
+        if (RadioSomar.isSelected()) {
+            
+            Resultado = Valor1 + Valor2;
+            
+            TxtResultado.setText(Double.toString(Resultado));
+            
+        }
+        
+        else if (RadioSubtrair.isSelected()) {
+        
+            Resultado = Valor1 - Valor2;
+            TxtResultado.setText(Double.toString(Resultado));
+                                   
+        }
+        
+        else if (RadioMultiplicar.isSelected()) {
+        
+            Resultado = Valor1 * Valor2;
+            TxtResultado.setText(Double.toString(Resultado));
+                                   
+        }
+        
+        else if (RadioDividir.isSelected()) {
+        
+            if (Valor2==0) {
+                JOptionPane.showMessageDialog(null, "Não é possível realizar uma divisão por Zero");
+            }
+            
+            else {
+            Resultado = Valor1 / Valor2;
+            TxtResultado.setText(Double.toString(Resultado));
+            }                 
+        }
+        
+        else {
+            JOptionPane.showMessageDialog(null, "Selecione uma das operações");
+        }
+        
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor digite os valores");
+        }

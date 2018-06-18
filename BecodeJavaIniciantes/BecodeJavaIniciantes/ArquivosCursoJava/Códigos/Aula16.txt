@@ -1,0 +1,23 @@
+BtnVerifica
+===========
+
+        double Salario;
+        double Abono;
+        double Total;
+        
+        Salario = Double.parseDouble(TxtSalario.getText());
+        
+        if (Salario>=1000) {
+            
+            Abono = 500;
+            Total = Salario + Abono;
+            JOptionPane.showMessageDialog(null, "Seu Abono será de: " + Abono + " Salário Total: " + Total);
+        }
+        
+        else {
+            
+            Abono = 800;
+            Total = Salario + Abono;
+            JOptionPane.showMessageDialog(null, "Seu Abono será de: " + Abono + " Salário Total: " + Total);
+            
+        }

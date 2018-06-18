@@ -1,0 +1,19 @@
+import javax.swing.DefaultListModel;
+
+private DefaultListModel Lista = new DefaultListModel();
+
+
+BtnCalcula
+==========
+
+        int Numero =  Integer.parseInt(TxtNumero.getText());
+        int Cont = 1;
+        int Total;
+        
+        while (Cont <= 10){
+        Total = Cont * Numero;
+        Lista.addElement(Cont + " X " + Numero + " = " +Total);
+               Cont++;
+        }
+
+        ListResultado.setModel(Lista);

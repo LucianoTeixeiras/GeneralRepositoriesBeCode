@@ -1,0 +1,22 @@
+BtnVerifica
+============
+
+        double Salario;
+        double Abono;
+        double Total;
+        
+        int Tempo;
+        
+        Tempo = Integer.parseInt(TxtTempo.getText());
+        Salario = Double.parseDouble(TxtSalario.getText());
+        
+        if ((Salario<1000) || (Tempo>5)) {
+            
+            JOptionPane.showMessageDialog(null, "Você receberá o abono!!");
+        }
+        
+        else {
+            
+            JOptionPane.showMessageDialog(null, "Você NÃO receberá o abono!!");
+            
+        }

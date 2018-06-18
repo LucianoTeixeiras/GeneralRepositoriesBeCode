@@ -1,0 +1,253 @@
+form
+=====
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+-------------------------
+
+ConexaoBanco Banco = new ConexaoBanco();
+static boolean Alterar = false;
+
+-------------------------
+
+Banco.conexao();
+Banco.executaSQL("SELECT * FROM livro");
+
+--------------------------
+
+BtnSalvar
+=========
+
+if (Alterar==false) {
+
+            try {
+                PreparedStatement inclusao = Banco.Conn.prepareStatement("INSERT INTO livro (livro, autor, genero) VALUES (?,?,?)");
+
+                inclusao.setString(1, TxtLivro.getText());
+                inclusao.setString(2, TxtAutor.getText());
+                inclusao.setString(3, TxtGenero.getText());
+                
+
+                inclusao.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!!");
+
+                //Limpa Campos
+
+                TxtLivro.setText(null);
+                TxtAutor.setText(null);
+                TxtGenero.setText(null);
+                
+                //Atualiza consulta
+                Banco.executaSQL("SELECT * FROM livro");
+
+                //Desabilita / Ativa botões e campos
+
+                BtnSalvar.setEnabled(false);
+                BtnNovo.setEnabled(true);
+                BtnAnterior.setEnabled(true);
+                BtnProximo.setEnabled(true);
+
+                TxtLivro.setEnabled(false);
+                TxtAutor.setEnabled(false);
+                TxtGenero.setEnabled(false);
+                
+
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
+
+        }
+
+        //Salvar alteração
+
+        else if (Alterar==true) {
+
+            try {
+                PreparedStatement alteracao = Banco.Conn.prepareStatement("UPDATE livro SET livro=?, autor=?, genero=? WHERE id_livro=?");
+
+                int id;
+                id = Integer.parseInt(Banco.Rs.getString("id_livro"));
+
+                alteracao.setString(1, TxtLivro.getText());
+                alteracao.setString(2, TxtAutor.getText());
+                alteracao.setString(3, TxtGenero.getText());
+                
+                alteracao.setInt(4, id);
+
+                alteracao.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Dados alterados com sucesso!!");
+
+                //Atualiza consulta
+                Banco.executaSQL("SELECT * FROM livro");
+
+                //Desabilita / Ativa botões e campos
+
+                BtnSalvar.setEnabled(false);
+                BtnNovo.setEnabled(true);
+                BtnAnterior.setEnabled(true);
+                BtnProximo.setEnabled(true);
+
+                TxtLivro.setEnabled(false);
+                TxtAutor.setEnabled(false);
+                TxtGenero.setEnabled(false);
+                
+
+                TxtLivro.setText(null);
+                TxtAutor.setText(null);
+                TxtGenero.setText(null);
+                
+                Alterar=false;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+------------------------------------------------------------------
+
+BtnAnterior
+==========
+
+try {
+            // TODO add your handling code here:
+
+            Banco.Rs.previous();
+
+            TxtLivro.setText(Banco.Rs.getString("livro"));
+            TxtAutor.setText(Banco.Rs.getString("autor"));
+            TxtGenero.setText(Banco.Rs.getString("genero"));
+            
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Este é o primeiro registro!!");
+
+            // Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+-----------------------------
+
+BtnProximo
+==========
+
+try {
+            // TODO add your handling code here:
+
+            Banco.Rs.next();
+
+            TxtLivro.setText(Banco.Rs.getString("livro"));
+            TxtAutor.setText(Banco.Rs.getString("autor"));
+            TxtGenero.setText(Banco.Rs.getString("genero"));
+            
+
+            BtnAlterar.setEnabled(true);
+            BtnExcluir.setEnabled(true);
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Este é o último registro!!");
+            //Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+=============================================
+
+BtnNovo
+=======
+
+TxtLivro.setText(null);
+        TxtAutor.setText(null);
+        TxtGenero.setText(null);
+        
+        BtnSalvar.setEnabled(true);
+        BtnNovo.setEnabled(false);
+        BtnAnterior.setEnabled(false);
+        BtnProximo.setEnabled(false);
+        BtnAlterar.setEnabled(false);
+        BtnExcluir.setEnabled(false);
+
+        TxtLivro.setEnabled(true);
+        TxtAutor.setEnabled(true);
+        TxtGenero.setEnabled(true);
+------------------------------------------
+
+BtnAlterar
+==========
+
+Alterar = true;
+
+        BtnSalvar.setEnabled(true);
+        BtnNovo.setEnabled(false);
+        BtnAnterior.setEnabled(false);
+        BtnProximo.setEnabled(false);
+        BtnAlterar.setEnabled(false);
+        BtnExcluir.setEnabled(false);
+
+        TxtLivro.setEnabled(true);
+        TxtAutor.setEnabled(true);
+        TxtGenero.setEnabled(true);
+        
+        TxtLivro.requestFocus();
+
+-------------------------------
+
+BtnExcluir
+==========
+
+int resposta;
+
+        resposta = JOptionPane.showConfirmDialog(null,"Deseja excluir este registro?");
+
+        if (resposta == JOptionPane.YES_OPTION) {
+
+            try {
+                PreparedStatement apagar = Banco.Conn.prepareStatement("DELETE FROM livro WHERE id_livro=?");
+
+                int id;
+                id = Integer.parseInt(Banco.Rs.getString("id_livro"));
+
+                apagar.setInt(1, id);
+
+                apagar.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Exclusão Realizada com Sucesso!!");
+
+                //Atualiza consulta
+                Banco.executaSQL("SELECT * FROM livro");
+
+                //Desabilita / Ativa botões e campos
+
+                BtnSalvar.setEnabled(false);
+                BtnNovo.setEnabled(true);
+                BtnAnterior.setEnabled(true);
+                BtnProximo.setEnabled(true);
+
+		TxtLivro.setText(null);
+                TxtAutor.setText(null);
+                TxtGenero.setText(null);
+
+                TxtLivro.setEnabled(false);
+                TxtAutor.setEnabled(false);
+                TxtGenero.setEnabled(false);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroLivro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
+------------------------------------------------------
+
+
+
+
+
+
+

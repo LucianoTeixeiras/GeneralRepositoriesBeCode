@@ -1,0 +1,46 @@
+public void PreencherTabela2(String SQL) {
+        ArrayList dados = new ArrayList();
+        
+        String[] Colunas = new String[]{"ID", "Livro", "Autor", "Genero"};
+        
+        Banco.executaSQL(SQL);
+        
+        try {
+            Banco.Rs.first();
+            
+            do {
+            dados.add(new Object[]{Banco.Rs.getInt("id_livro"), Banco.Rs.getString("livro"), Banco.Rs.getString("autor"), Banco.Rs.getString("genero")});
+            
+            } while (Banco.Rs.next()); {
+            
+        }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Backup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ModeloTabela modelo = new ModeloTabela(dados, Colunas);
+        jTable2.setModel(modelo);
+        
+        jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable2.getColumnModel().getColumn(0).setResizable(false);
+        
+        jTable2.getColumnModel().getColumn(1).setPreferredWidth(180);
+        jTable2.getColumnModel().getColumn(1).setResizable(false);
+        
+        jTable2.getColumnModel().getColumn(2).setPreferredWidth(100);
+        jTable2.getColumnModel().getColumn(2).setResizable(false);
+        
+        jTable2.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTable2.getColumnModel().getColumn(3).setResizable(false);
+        
+        jTable2.getTableHeader().setResizingAllowed(false);
+        jTable2.setAutoResizeMode(jTable1.AUTO_RESIZE_OFF);
+        jTable2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+}
+
+======================================================
+
+ PreencherTabela2("SELECT * from livro WHERE UPPER(livro) LIKE '%"+ TxtLivro.getText().toUpperCase()+"%'");
+        

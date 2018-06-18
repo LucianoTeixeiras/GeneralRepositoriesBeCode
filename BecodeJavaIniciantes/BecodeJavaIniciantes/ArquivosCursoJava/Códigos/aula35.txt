@@ -1,0 +1,20 @@
+        PreparedStatement inclusao = Banco.Conn.prepareStatement("INSERT INTO leitor (nome_leitor, endereco_leitor, cpf, telefone_leitor) VALUES (?,?,?,?)");
+	===========================================================
+        inclusao.setString(1, TxtNome.getText());
+        inclusao.setString(2, TxtEndereco.getText());
+        inclusao.setString(3, TxtCpf.getText());
+        inclusao.setString(4, TxtTelefone.getText());
+        
+        inclusao.executeUpdate();
+        
+        JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso!!");
+	
+	==============================================================
+
+	//Limpa Campos
+        
+        TxtNome.setText(null);
+        TxtEndereco.setText(null);
+        TxtCpf.setText(null);
+        TxtTelefone.setText(null);
+

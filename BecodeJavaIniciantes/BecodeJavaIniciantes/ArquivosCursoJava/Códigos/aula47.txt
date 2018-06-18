@@ -1,0 +1,21 @@
+	Date retirada = new Date();
+        Date devolucao = new Date();
+        GregorianCalendar gc = new GregorianCalendar();
+
+	gc.setTime(retirada);
+
+		
+	gc.add(Calendar.DAY_OF_MONTH, 7);
+
+	devolucao = gc.getTime();
+
+	           
+        String retiradaString = null;
+        String devolucaoString = null;
+        SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+        
+        retiradaString = sdfr.format(retirada);
+        devolucaoString = sdfr.format(devolucao);
+        
+        TxtRetirada.setText(retiradaString);
+        TxtDevolucao.setText(devolucaoString);

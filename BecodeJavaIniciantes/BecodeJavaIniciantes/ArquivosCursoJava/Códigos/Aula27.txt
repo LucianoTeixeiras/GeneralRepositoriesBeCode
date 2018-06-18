@@ -1,0 +1,19 @@
+static int Num1, Num2, Soma;
+============================
+
+Num1 = Integer.parseInt(JOptionPane.showInputDialog("Digite o primeiro Valor:"));
+Num2 = Integer.parseInt(JOptionPane.showInputDialog("Digite o primeiro Valor:"));
+        
+SomarValores();
+        
+JOptionPane.showMessageDialog(null, "A soma dos valores é:" + Soma);
+
+=================
+
+public static void SomarValores() {
+        
+        Soma = Num1 + Num2;
+        
+    }
+
+

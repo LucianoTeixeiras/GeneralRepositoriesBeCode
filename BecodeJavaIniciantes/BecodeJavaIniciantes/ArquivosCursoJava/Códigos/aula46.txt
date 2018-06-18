@@ -1,0 +1,25 @@
+String nome_leitor = ""+jTable1.getValueAt(jTable1.getSelectedRow(),1);
+        
+        Banco.executaSQL("SELECT id_leitor, nome_leitor FROM leitor WHERE nome_leitor='"+nome_leitor+"'");
+        try {
+            Banco.Rs.first();
+            LblLeitor.setText(Banco.Rs.getString("nome_leitor"));
+            IDLeitor = Banco.Rs.getInt("id_leitor");
+        } catch (SQLException ex) {
+            Logger.getLogger(Backup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+============================================================================
+
+
+String nome_livro = ""+jTable2.getValueAt(jTable2.getSelectedRow(),1);
+        
+        Banco.executaSQL("SELECT id_livro, livro FROM livro WHERE livro='"+nome_livro+"'");
+        try {
+            Banco.Rs.first();
+            LblLivro.setText(Banco.Rs.getString("livro"));
+            IDLivro = Banco.Rs.getInt("id_livro");
+        } catch (SQLException ex) {
+            Logger.getLogger(Backup.class.getName()).log(Level.SEVERE, null, ex);
+        }

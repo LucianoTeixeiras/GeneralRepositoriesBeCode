@@ -1,0 +1,9 @@
+            String strNome;
+            int intIdade;
+            Double douPeso;
+
+            strNome = objPessoa.ObterNome();
+            intIdade = objPessoa.ObterIdade();
+            douPeso = objPessoa.ObterPeso();
+            
+            JOptionPane.showMessageDialog(null,"Nome: " + strNome + " Idade:" + intIdade + " Peso:" + douPeso);

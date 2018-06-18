@@ -1,0 +1,9 @@
+String Nome = "José da Silva";
+String Endereco = "Av. do Carmo";
+int Numero = 600;
+String Telefone = "(16) 9999-9999";
+        
+TxtNome.setText(Nome);
+TxtEndereco.setText(Endereco);
+TxtNumero.setText(Integer.toString(Numero));
+TxtTelefone.setText(Telefone);

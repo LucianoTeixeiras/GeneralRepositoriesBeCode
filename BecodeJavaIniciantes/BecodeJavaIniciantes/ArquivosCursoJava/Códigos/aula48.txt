@@ -1,0 +1,26 @@
+try {
+        
+
+        PreparedStatement inclusao = Banco.Conn.prepareStatement("INSERT INTO emprestimo (id_leitor, id_livro, nome_leitor, nome_livro, emprestimo, devolucao, ativo) VALUES (?,?,?,?,?,?,?)");
+            
+        inclusao.setInt(1,  IDLeitor);
+        inclusao.setInt(2, IDLivro);
+        inclusao.setString(3, LblLeitor.getText());
+        inclusao.setString(4, LblLivro.getText());
+        inclusao.setString(5, TxtRetirada.getText());
+        inclusao.setString(6, TxtDevolucao.getText());
+        inclusao.setString(7, "SIM");     
+        
+        inclusao.executeUpdate();
+
+	JOptionPane.showMessageDialog(null, "Emprestimo Realizado com Sucesso!!");
+        
+        TxtLeitor.setText(null);
+        TxtLivro.setText(null);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastraEmprestimo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+                               

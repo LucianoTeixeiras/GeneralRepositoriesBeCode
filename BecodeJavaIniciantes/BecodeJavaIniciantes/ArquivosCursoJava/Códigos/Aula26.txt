@@ -1,0 +1,9 @@
+int Numero =  Integer.parseInt(TxtNumero.getText());
+int Total;
+        
+for (int Cont = 1; Cont <= 10; Cont++ ){
+Total = Cont * Numero;
+Lista.addElement(Cont + " X " + Numero + " = " +Total);
+}
+
+ListResultado.setModel(Lista);

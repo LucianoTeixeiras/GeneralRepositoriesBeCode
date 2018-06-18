@@ -1,0 +1,20 @@
+PreparedStatement alteracao;
+        try {
+            alteracao = Banco.Conn.prepareStatement("UPDATE emprestimo SET ativo=? WHERE id_emprestimo=?");
+            
+             int id;
+                id = Integer.parseInt(Banco.Rs.getString("id_emprestimo"));
+
+                alteracao.setString(1, "NÃO");
+                alteracao.setInt(2, id);
+
+                alteracao.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Devolução Realizada com Sucesso!!!");
+                
+                PreencherTabela("SELECT * from emprestimo WHERE (ativo='SIM') AND UPPER(nome_leitor) LIKE '%"+ TxtLeitor.getText().toUpperCase()+"%'");
+                
+                
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastraDevolucao.class.getName()).log(Level.SEVERE, null, ex);
+        }

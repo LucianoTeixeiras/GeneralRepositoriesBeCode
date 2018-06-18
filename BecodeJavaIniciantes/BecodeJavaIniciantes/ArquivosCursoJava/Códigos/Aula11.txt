@@ -1,0 +1,20 @@
+
+Calculadora.java
+===============
+
+Inicial FrmInicial = new Inicial();
+FrmInicial.setVisible(true);
+
+BtnSoma
+=======
+
+int Valor1;
+int Valor2;
+int Resultado;
+        
+Valor1 = Integer.parseInt(TxtValor1.getText());
+Valor2 = Integer.parseInt(TxtValor2.getText());
+        
+Resultado = Valor1 + Valor2;
+        
+TxtResultado.setText(Integer.toString(Resultado));

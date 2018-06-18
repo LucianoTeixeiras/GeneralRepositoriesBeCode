@@ -1,0 +1,39 @@
+import java.sql.*;
+
+    public Statement Stm;
+    public ResultSet Rs;
+
+    private String Driver = "org.postgresql.Driver";
+    private String Caminho = "jdbc:postgresql://localhost:5432/biblioteca";
+    private String Usuario = "postgres";
+    private String Senha = "123456";
+
+    public Connection Conn;
+
+public void conexao() {
+  
+        try {
+            System.setProperty("jdbc.Drivers", Driver);
+            Conn = DriverManager.getConnection(Caminho, Usuario, Senha);
+            //JOptionPane.showMessageDialog(null, "Conectado!!");
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoBanco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+public void desconecta() {
+        
+        try {
+            Conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoBanco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
+========================================
+ConexaoBanco Banco = new ConexaoBanco();
+
+========================================
+
+Banco.conexao();

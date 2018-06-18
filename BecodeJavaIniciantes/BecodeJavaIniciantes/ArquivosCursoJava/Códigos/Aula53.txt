@@ -1,0 +1,7 @@
+int resposta;
+
+        resposta = JOptionPane.showConfirmDialog(null,"Deseja sair do programa?");
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }

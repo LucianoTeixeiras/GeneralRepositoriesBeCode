@@ -1,0 +1,15 @@
+String Nome;
+String Endereco;
+int Numero;
+String Telefone;
+Nome = TxtNome.getText();
+Endereco = TxtEndereco.getText();
+Numero = Integer.parseInt(TxtNumero.getText());
+Telefone = TxtTelefone.getText();
+        
+JOptionPane.showMessageDialog(null, "Nome:" + Nome + "Endereço:" + Endereco + "Nº" + Numero + "Telefone: " + Telefone);                                   
+
+============================================
+
+Cadastro FrmCadastro = new Cadastro();
+FrmCadastro.setVisible(true);

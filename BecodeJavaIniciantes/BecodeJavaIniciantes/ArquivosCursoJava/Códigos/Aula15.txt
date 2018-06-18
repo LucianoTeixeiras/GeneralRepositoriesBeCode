@@ -1,0 +1,12 @@
+BtnVerifica
+===========
+
+double Salario;
+
+Salario = Double.parseDouble(TxtSalario.getText());
+        
+if (Salario>1000) {
+
+JOptionPane.showMessageDialog(null, "Você não terá aumento de Salário!");
+
+}

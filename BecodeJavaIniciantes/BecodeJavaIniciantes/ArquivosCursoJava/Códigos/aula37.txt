@@ -1,0 +1,34 @@
+BtnNovo
+=======
+
+        TxtNome.setText(null);
+        TxtEndereco.setText(null);
+        TxtCpf.setText(null);
+        TxtTelefone.setText(null);
+        
+        BtnSalvar.setEnabled(true);
+        BtnNovo.setEnabled(false);
+        BtnAnterior.setEnabled(false);
+        BtnProximo.setEnabled(false);
+        
+        TxtNome.setEnabled(true);
+        TxtEndereco.setEnabled(true);
+        TxtCpf.setEnabled(true);
+        TxtTelefone.setEnabled(true);
+        TxtNome.requestFocus();
+
+BtnSalvar
+=========
+
+	 //Desabilita botões e campos
+        
+        BtnSalvar.setEnabled(false);
+        BtnNovo.setEnabled(true);
+        BtnAnterior.setEnabled(true);
+        BtnProximo.setEnabled(true);
+        
+        TxtNome.setEnabled(false);
+        TxtEndereco.setEnabled(false);
+        TxtCpf.setEnabled(false);
+        TxtTelefone.setEnabled(false);
+

@@ -1,0 +1,25 @@
+       if (("".equals(TxtValor1.getText())) || ("".equals(TxtValor2.getText()))) {
+            
+           JOptionPane.showMessageDialog(null, "Certifique-se de digitar os valores!!"); 
+        }
+        
+        else if ("0".equals(TxtValor2.getText())) {
+            
+           JOptionPane.showMessageDialog(null, "Não é possível realizar uma divisão por 0");
+        }
+        
+        else {
+        
+        double Valor1;
+        double Valor2;
+        
+        double Resultado;
+        
+        Valor1 = Double.parseDouble(TxtValor1.getText());
+        Valor2 = Double.parseDouble(TxtValor2.getText());
+        
+        Resultado = Valor1/Valor2;
+        
+        TxtResultado.setText(Double.toString(Resultado));
+        
+        }
